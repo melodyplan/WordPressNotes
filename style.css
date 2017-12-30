@@ -17,6 +17,7 @@ a:visited {
 }
 
 p {
+  margin-top: 0;
   line-height: 1.65em;
 }
 
@@ -34,6 +35,51 @@ article.post {
 
 article.post:last-of-type {
   border-bottom: none;
+}
+
+/* Aside Styles */
+article.post-aside,
+article.post-link,
+article.post-gallery {
+  font-size: 125%;
+  background-color: #fff5cb;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+  margin: 10px;
+}
+
+.mini-meta {
+  font-size: 68%;
+  margin: 0;
+  color: #777;
+}
+
+/* Link Post Format Styles */
+article.post-link {
+  padding: 0;
+  background-color: #e0ebff;
+}
+
+article.post-link a {
+  display: block;
+  padding: 20px;
+}
+
+/* Post Format Gallery Styles */
+article.post-gallery {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+article.post-gallery img {
+  border: none !important;
+}
+
+article.post-gallery h3 {
+  text-align: center;
 }
 
 /* Header */
@@ -123,6 +169,7 @@ div.title-column {
 }
 
 div.text-column {
+  padding-top: 10px;
   width: 70%;
   float: right;
 }

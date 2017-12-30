@@ -51,9 +51,16 @@ function learningWordPress_setup() {
   ));
 
   // Add featured image support
+  /* add_theme_support() specifies the add-on you want to add in WordPress
+  depending on the parameter you pass through */
   add_theme_support('post-thumbnails');
   add_image_size('small-thumbnail', 180, 120, true);
   add_image_size('banner-image', 920, 210, array('right', 'top'));
+
+  // Add post format support
+  add_theme_support('post-formats', array('aside', 'gallery', 'link'));
+
+
 }
 
 add_action('after_setup_theme', 'learningWordPress_setup');
