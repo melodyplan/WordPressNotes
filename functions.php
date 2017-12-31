@@ -113,4 +113,84 @@ function ourWidgetsInit() {
 
 add_action('widgets_init', 'ourWidgetsInit');
 
+// Customize Appearance options
+function learningWordPress_customize_register( $wp_customize ) {
+
+  $wp_customize -> add_setting('lwp_link_color', array(
+    // the default of the setting
+    'default' => '#006er3',
+    /* controls how WordPress will update the preview of the website when you are
+    on the customize screen. */
+    'transport' => 'refresh'
+  ));
+
+  $wp_customize -> add_setting('lwp_btn_color', array(
+    'default' => '#006er3',
+    'transport' => 'refresh'
+  ));
+
+  $wp_customize -> add_setting('lwp_btn_hover', array(
+    'default' => '#006er3',
+    'transport' => 'refresh'
+  ));
+
+  $wp_customize -> add_section('lwp_standard_colors', array(
+    // titles will actually be seen by users of the theme
+    'title' => __('Standard Colors', 'LearningWordPress'),
+    'priorty' => 30,
+  ));
+
+  $wp_customize -> add_control( new WP_Customize_Color_Control( $wp_customize, 'lwp_link_color_control', array(
+    'label' => __('Link Color', 'LearningWordPress'),
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_link_color'
+  )));
+
+  $wp_customize -> add_control( new WP_Customize_Color_Control( $wp_customize, 'lwp_btn_color_control', array(
+    'label' => __('Button Color', 'LearningWordPress'),
+    /* didn't create a new section btn_color because we wanted to put it in the
+    same section as lwp_standard_colors */
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_btn_color'
+  )));
+
+  $wp_customize -> add_control( new WP_Customize_Color_Control( $wp_customize, 'lwp_btn_hover_control', array(
+    'label' => __('Button Hover', 'LearningWordPress'),
+    'section' => 'lwp_standard_colors',
+    'settings' => 'lwp_btn_hover'
+  )));
+
+}
+
+add_action('customize_register', 'learningWordPress_customize_register');
+
+// Output Customize CSS
+function learningWordPress_customize_css() { ?>
+  <style type="text/css">
+
+    a:link,
+    a:visited {
+      color: <?php echo get_theme_mod('lwp_link_color'); ?>;
+    }
+
+    .site-header nav ul li.current-menu-item a:link,
+    .site-header nav ul li.current-menu-item a:visited,
+    .site-header nav ul li.current-page-ancestor a:link,
+    .site-header nav ul li.current-page-ancestor a:visited {
+      background-color: <?php echo get_theme_mod('lwp_link_color'); ?>;
+    }
+
+    .hd-search #searchsubmit {
+      background-color: <?php echo get_theme_mod('lwp_btn_color'); ?>;
+    }
+
+    .hd-search #searchsubmit:hover {
+      background-color: <?php echo get_theme_mod('lwp_btn_hover'); ?>;
+    }
+
+  </style>
+<?php }
+
+add_action('wp_head', 'learningWordPress_customize_css');
+
 ?>
