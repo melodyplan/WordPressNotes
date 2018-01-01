@@ -326,3 +326,33 @@ img {
   vertical-align: top;
   padding: 3px 0;
 }
+
+/* Footer Callout Section */
+.footer-callout {
+  background-color: #ddd;
+  padding: 20px;
+  margin: 30px 0 0 0;
+  /* overflow: auto starts a new block formatting context. The result is that
+  the child divs inside the parent div is enclosed within the block area
+  defined by the parent div. */
+  overflow: auto;
+}
+
+.footer-callout-image {
+  float: left;
+  width: 30%;
+}
+
+.footer-callout-text {
+  float: right;
+  width: 67%;
+}
+
+.footer-callout-text h2 {
+  font-size: 1.7rem;
+  margin: 0 0 0.35rem 0;
+}
+
+.footer-callout-text p {
+  font-size: 0.9rem;
+}
