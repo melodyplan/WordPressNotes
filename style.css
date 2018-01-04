@@ -129,7 +129,6 @@ article.post-gallery h3 {
 
 /* Footer */
 .site-footer {
-  margin-top: 30px;
   border-top: 2px solid #999;
   clear: both;
 }
@@ -355,4 +354,44 @@ img {
 
 .footer-callout-text p {
   font-size: 0.9rem;
+}
+
+/* About the Author section */
+.about-author {
+  background-color: #ededed;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.about-author-image {
+  float: left;
+  width: 28%;
+  position: relative;
+}
+
+.about-author-image img {
+  /*to perfectly align the paragraph styling in ```.about-author-image p``` with
+   the image*/
+  display: block;
+}
+
+.about-author-image p {
+  /*positioned absolutely relative to it's parent element rather than the entire
+   page thanks to .about-author-image having the property position: relative*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 0;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
+  color: #fff;
+  margin: 0;
+}
+
+.about-author-text {
+  float: right;
+  width: 68%;
 }
