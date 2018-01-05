@@ -24,6 +24,11 @@ get_header(); ?>
 
       endwhile;
 
+      /* Various ways to go forward and back for posts */
+      // previous_posts_link();
+      // next_posts_link();
+      echo paginate_links();
+
         else :
           echo '<p>No content found</p>';
 
